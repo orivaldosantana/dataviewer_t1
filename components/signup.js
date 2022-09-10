@@ -17,7 +17,7 @@ export default function Signup() {
     }
     try {
       setError('')
-      //setLoading(true)
+      setLoading(true)
       console.log(
         'Submit ' + emailRef.current.value + ' ' + passwordRef.current.value
       )
