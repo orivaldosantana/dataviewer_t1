@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { useAuth } from '../context/AuthContext'
+import ErrorCard from './ErrorCard'
 
 const Signup = () => {
   const emailRef = useRef()
@@ -20,6 +21,7 @@ const Signup = () => {
       <div className="card">
         <h2> Cadastro </h2>
         <form className="form" onSubmit={handleSubmit}>
+          <ErrorCard msg="Testes!" />
           <label> Email: </label>
           <input type="email" ref={emailRef} required />
           <label> Senha: </label>
