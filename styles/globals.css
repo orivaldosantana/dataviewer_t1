@@ -15,12 +15,38 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.card {
+  text-align: center;
+  color: #273b73;
+}
+
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form label {
+  text-align: left;
+  display: block;
+}
+
+.form input {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.button {
+  background: #273b73;
+  color: #efefef;
+  border: 0;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
 }

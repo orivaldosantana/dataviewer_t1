@@ -3,16 +3,18 @@ import React from 'react'
 const Signup = () => {
   return (
     <>
-      <div className="Signup">
+      <div className="card">
         <h2> Sign up </h2>
-        <form>
+        <form className="form">
           <label> Email: </label>
           <input type="email" required />
           <label> Senha: </label>
           <input type="password" required />
           <label> Confirmação da senha: </label>
           <input type="password" required />
-          <button type="submit">Sign Up </button>
+          <button className="button" type="submit">
+            Sign Up{' '}
+          </button>
         </form>
         <div> Já tem conta? Log In </div>
       </div>
