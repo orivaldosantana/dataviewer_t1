@@ -36,4 +36,6 @@ yarn-error.log*
 next-env.d.ts
 
 # segurança 
-firebase.js 
+
+./utils/firebase.js
+utils/firebase.js
