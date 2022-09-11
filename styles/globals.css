@@ -12,13 +12,28 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #273b73;
+  text-decoration: underline;
+}
+
 footer {
   display: block;
   text-align: center;
   padding: 30px 0;
-  margin-top: 60px;
+  margin-top: 30px;
   color: #777;
   border-top: 1px solid #eaeaea;
+}
+
+.content {
+  display: flex;
+}
+
+header {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
 }
 
 .errorcard {
@@ -77,4 +92,13 @@ footer {
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
+}
+
+.button:hover {
+  background: #4163bf;
+}
+
+.smalltext {
+  color: #808080;
+  font-size: small;
 }

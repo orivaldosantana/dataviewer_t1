@@ -47,7 +47,7 @@ export default function Login() {
             Entrar
           </button>
         </form>
-        <div>
+        <div className="smalltext">
           Precisa de uma conta?{' '}
           <Link href="/signup">
             <a>Faça seu cadastro.</a>
