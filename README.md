@@ -4,6 +4,8 @@ Projeto criado para estudar Nextjs
 
 ## Referências
 
+Autenticação:
+
 - https://www.youtube.com/watch?v=PKwu15ldZ7k
 - https://www.youtube.com/watch?v=ZmpO65DhRN0
 - https://github.com/sairajchouhan/nextjs-firebase-auth/blob/main/pages/_app.tsx

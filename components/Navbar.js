@@ -1,0 +1,36 @@
+import Link from 'next/link'
+import styles from '../styles/Home.module.css'
+import { useAuth } from '../context/AuthContext'
+
+const Navbar = () => {
+  const { logout } = useAuth()
+
+  async function handleAnchorLogoutClick(e) {
+    try {
+      await logout()
+      router.push('/login')
+    } catch {
+      console.log('Falha ao realizar logout!')
+    }
+  }
+
+  return (
+    <nav>
+      <ul className={styles.ul}>
+        <li className={styles.li}>
+          <Link href="/dashboard">
+            <a>Dashboard</a>
+          </Link>
+        </li>
+        <li className={styles.li}>
+          <Link href="/classes">Turmas</Link>
+        </li>
+        <li className={styles.li}>
+          <a onClick={handleAnchorLogoutClick}>Sair</a>
+        </li>
+      </ul>
+    </nav>
+  )
+}
+
+export default Navbar

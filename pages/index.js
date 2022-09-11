@@ -2,6 +2,7 @@ import React from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import Navbar from '../components/Navbar'
 
 export default function Home() {
   const [error, setError] = useState('')
@@ -23,6 +24,7 @@ export default function Home() {
       <h1>Home </h1>
       <p>{currentUser.email}</p>
       <button onClick={handleLogout}> Logout </button>
+      <Navbar />
     </div>
   )
 }
