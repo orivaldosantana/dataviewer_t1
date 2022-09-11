@@ -3,16 +3,16 @@ import React, { useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 
 const ProtectedRoute = ({ children }) => {
-  const { user } = useAuth()
+  const { currentUser } = useAuth()
   const router = useRouter()
 
   useEffect(() => {
-    if (!user) {
+    if (!currentUser) {
       router.push('/login')
     }
-  }, [router, user])
+  }, [router, currentUser])
 
-  return <> {user ? children : null} </>
+  return <> {currentUser ? children : null} </>
 }
 
 export default ProtectedRoute

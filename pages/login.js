@@ -2,8 +2,10 @@ import React, { useRef, useState } from 'react'
 import Link from 'next/link'
 import { useAuth } from '../context/AuthContext'
 import ErrorCard from '../components/ErrorCard'
+import { useRouter } from 'next/router'
 
 export default function Login() {
+  const router = useRouter()
   const emailRef = useRef()
   const passwordRef = useRef()
   const [error, setError] = useState('')
@@ -23,6 +25,7 @@ export default function Login() {
           passwordRef.current.value
       )
       await login(emailRef.current.value, passwordRef.current.value)
+      router.push('/')
     } catch {
       setError('Falha ao realizar o login!')
     }
