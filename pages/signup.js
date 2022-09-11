@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import ErrorCard from '../components/ErrorCard'
+import Link from 'next/link'
 
 export default function Signup() {
   const emailRef = useRef()
@@ -45,7 +46,13 @@ export default function Signup() {
             Cadastrar
           </button>
         </form>
-        <div> Já tem conta? Log In </div>
+
+        <div>
+          Já tem conta?{' '}
+          <Link href="/login">
+            <a>Faça Login.</a>
+          </Link>
+        </div>
       </div>
     </>
   )
