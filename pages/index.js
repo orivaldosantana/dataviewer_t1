@@ -9,14 +9,11 @@ export default function Home() {
   const [error, setError] = useState('')
   const router = useRouter()
   const { currentUser, logout } = useAuth()
-
+  console.log(currentUser)
   return (
     <div>
       <h1>Home </h1>
       <p>{currentUser.email}</p>
-
-      <Navbar />
-      <Footer />
     </div>
   )
 }
