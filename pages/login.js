@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useAuth } from '../context/AuthContext'
 import ErrorCard from '../components/ErrorCard'
@@ -35,8 +36,7 @@ export default function Login() {
   return (
     <>
       <div className="card">
-        {currentUser && currentUser.email}
-        <h2> Cadastro </h2>
+        <Image src="/dataviewer_full.svg" width={200} height={115} />
         {error && <ErrorCard msg={error} />}
         <form className="form" onSubmit={handleSubmit}>
           <label> Email: </label>

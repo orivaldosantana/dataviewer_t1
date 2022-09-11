@@ -23,9 +23,12 @@ a {
 }
 
 .card {
-  max-width: 400px;
+  max-width: 360px;
   margin: 40px auto;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   text-align: center;
   color: #273b73;
   background-color: #fff;
@@ -35,6 +38,8 @@ a {
 }
 
 .form {
+  padding-top: 30px;
+  padding-bottom: 30px;
   max-width: 300px;
   margin: 0 auto;
   text-align: center;
