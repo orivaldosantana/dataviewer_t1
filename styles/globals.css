@@ -12,6 +12,15 @@ a {
   text-decoration: none;
 }
 
+footer {
+  display: block;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+  color: #777;
+  border-top: 1px solid #eaeaea;
+}
+
 .errorcard {
   max-width: 400px;
   margin: 40px auto;
