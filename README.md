@@ -13,3 +13,9 @@ Autenticação:
 - https://www.youtube.com/playlist?list=PL4cUxeGkcC9g9gP2onazU5-2M-AzA8eBw
 - https://www.youtube.com/watch?v=lkNvj7fUcRw&list=PL4cUxeGkcC9jUPIes_B8vRjn1_GaplOPQ&index=3
 - https://github.com/WebDevSimplified/React-Firebase-Auth/blob/master/src/contexts/AuthContext.js
+
+API:
+
+- https://nextjs.org/docs/api-routes/introduction
+- https://github.com/vercel/next.js/tree/canary/examples/api-routes-rest/pages/api
+-
