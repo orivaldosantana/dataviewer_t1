@@ -13,7 +13,7 @@ export const createFirebaseApp = () => {
 
   if (getApps().length <= 0) {
     const app = initializeApp(clientCredentials)
-
+    console.log(clientCredentials['apiKey'])
     return app
   }
 }
