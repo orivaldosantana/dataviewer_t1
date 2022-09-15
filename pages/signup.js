@@ -3,14 +3,16 @@ import Image from 'next/image'
 import { useAuth } from '../context/AuthContext'
 import ErrorCard from '../components/ErrorCard'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function Signup() {
+  const router = useRouter()
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const { signup, currentUser } = useAuth()
+  const { signup } = useAuth()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -24,6 +26,7 @@ export default function Signup() {
         'Submit ' + emailRef.current.value + ' ' + passwordRef.current.value
       )
       await signup(emailRef.current.value, passwordRef.current.value)
+      router.push('/')
     } catch {
       setError('Falha ao criar uma conta!')
     }

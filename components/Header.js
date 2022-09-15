@@ -5,7 +5,7 @@ const Header = () => {
   const { currentUser } = useAuth()
   return (
     <header>
-      <Image src="/logo_name_h.svg" width={220} height={36} />
+      <Image src="/logo_name_h.svg" width={180} height={28} />
       <div>
         <h3> Nome Usuário </h3>
         {currentUser.email}
