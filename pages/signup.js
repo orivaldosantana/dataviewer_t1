@@ -22,9 +22,6 @@ export default function Signup() {
     try {
       setError('')
       setLoading(true)
-      console.log(
-        'Submit ' + emailRef.current.value + ' ' + passwordRef.current.value
-      )
       await signup(emailRef.current.value, passwordRef.current.value)
       router.push('/')
     } catch {

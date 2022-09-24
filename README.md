@@ -16,6 +16,6 @@ Autenticação:
 
 API:
 
-- https://nextjs.org/docs/api-routes/introduction
-- https://github.com/vercel/next.js/tree/canary/examples/api-routes-rest/pages/api
--
+- [API Routes with Next.JS](https://nextjs.org/docs/api-routes/introduction)
+- [Next.JS/examples on vercel github](https://github.com/vercel/next.js/tree/canary/examples/api-routes-rest/pages/api)
+- [NEXT.JS: CRIANDO E CONSUMINDO APIs - PARTE #06](https://www.youtube.com/watch?v=3Eam3ogU-uk)
