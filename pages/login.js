@@ -19,12 +19,6 @@ export default function Login() {
     try {
       setError('')
       setLoading(true)
-      console.log(
-        'Submit Login ' +
-          emailRef.current.value +
-          ' ' +
-          passwordRef.current.value
-      )
       await login(emailRef.current.value, passwordRef.current.value)
       router.push('/')
     } catch {
