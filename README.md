@@ -21,4 +21,10 @@ API:
 - [Next.JS/examples on vercel github](https://github.com/vercel/next.js/tree/canary/examples/api-routes-rest/pages/api)
 - [NEXT.JS: CRIANDO E CONSUMINDO APIs - PARTE #06](https://www.youtube.com/watch?v=3Eam3ogU-uk)
 
+Rotas:
+
+- [Next.js Tutorial - 7 - Dynamic Routes](https://www.youtube.com/watch?v=Ql5kyJaYbls&t=410s)
+
 Banco de dados:
+
+- [Getting Started with Firebase 9 #4 - Firestore Setup & Fetching Data](https://www.youtube.com/watch?v=2yNyiW_41H8&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&index=4)

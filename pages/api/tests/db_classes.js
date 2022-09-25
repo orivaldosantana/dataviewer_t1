@@ -9,7 +9,7 @@ export default function handler(req, res) {
     snapshot.docs.forEach(doc => {
       classes.push({ ...doc.data() })
     })
-    console.log(classes)
+    //console.log(classes)
     res.status(200).json(classes)
   })
 }
