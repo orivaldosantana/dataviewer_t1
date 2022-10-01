@@ -1,5 +1,6 @@
 import ClassCard from '../../components/ClassCard'
 import styles from '../../styles/Home.module.css'
+import Link from 'next/link'
 import axios from 'axios'
 
 function Classes({ items }) {
@@ -9,9 +10,11 @@ function Classes({ items }) {
       <h2>Turmas</h2>
       <div className={styles.containerclasses}>
         {items.map(c => (
-          <div key={c.id_class}>
-            <ClassCard title={c.name} year={2022} semester={1} />{' '}
-          </div>
+          <Link href={`/classes/${c.id_class}`} key={c.id_class}>
+            <a>
+              <ClassCard title={c.name} year={c.year} semester={c.semester} />
+            </a>
+          </Link>
         ))}
       </div>
     </div>

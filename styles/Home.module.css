@@ -28,6 +28,11 @@
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
+.maincontainer {
+  align-content: flex-start;
+  width: 90%;
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;
@@ -84,7 +89,6 @@
 }
 
 .maincard {
-  width: 100%;
   margin: 10px;
   padding: 20px;
   text-align: left;
