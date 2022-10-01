@@ -6,16 +6,18 @@ import axios from 'axios'
 function Classes({ items }) {
   console.log(items)
   return (
-    <div className={styles.maincard}>
-      <h2>Turmas</h2>
-      <div className={styles.containerclasses}>
-        {items.map(c => (
-          <Link href={`/classes/${c.id_class}`} key={c.id_class}>
-            <a>
-              <ClassCard title={c.name} year={c.year} semester={c.semester} />
-            </a>
-          </Link>
-        ))}
+    <div className={styles.maincontainer}>
+      <div className={styles.maincard}>
+        <h2>Turmas</h2>
+        <div className={styles.containerclasses}>
+          {items.map(c => (
+            <Link href={`/classes/${c.id_class}`} key={c.id_class}>
+              <a>
+                <ClassCard title={c.name} year={c.year} semester={c.semester} />
+              </a>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   )
