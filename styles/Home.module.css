@@ -22,6 +22,12 @@
   padding: 0 2rem;
 }
 
+.containerclasses {
+  align-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;

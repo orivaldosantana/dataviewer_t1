@@ -1,3 +1,4 @@
+import ClassCard from '../../components/ClassCard'
 import styles from '../../styles/Home.module.css'
 import axios from 'axios'
 
@@ -6,9 +7,13 @@ function Classes({ items }) {
   return (
     <div className={styles.maincard}>
       <h2>Turmas</h2>
-      {items.map(c => (
-        <div key={c.id_class}> {c.name} </div>
-      ))}
+      <div className={styles.containerclasses}>
+        {items.map(c => (
+          <div key={c.id_class}>
+            <ClassCard title={c.name} year={2022} semester={1} />{' '}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
