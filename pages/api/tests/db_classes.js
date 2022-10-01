@@ -3,7 +3,7 @@ import { collection, getDocs } from 'firebase/firestore'
 
 export default function handler(req, res) {
   const dbInstance = collection(database, 'classes')
-  console.log('data:\n\n')
+
   let classes = []
   getDocs(dbInstance).then(snapshot => {
     snapshot.docs.forEach(doc => {

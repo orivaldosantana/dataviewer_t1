@@ -1,0 +1,26 @@
+.card {
+  border: 2px solid #5882fa;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px;
+}
+
+.card .title {
+  color: #273b73;
+  padding: 5px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.card .content {
+  text-align: left;
+
+  color: #373737;
+  padding: 10px;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  border-color: #0070f3;
+}
