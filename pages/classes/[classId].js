@@ -5,29 +5,31 @@ import { useRouter } from 'next/router'
 
 import dynamic from 'next/dynamic'
 
-const ClassSubjectChart = dynamic(
-  () => import('../../components/ClassSubjectChart'),
-  { ssr: false }
-)
+const ClassChart = dynamic(() => import('../../components/PerformanceChart'), {
+  ssr: false
+})
 
-function ClassDetails({ subjects, difficulties }) {
+function ClassDetails({ subjects, difficulties, listsSubs }) {
   const router = useRouter()
   const classId = router.query.classId
   return (
     <div className={styles.maincontainer}>
       <div className={styles.maincard}>
         <h2>Turma</h2>
-
         <p> {classId} </p>
+      </div>
+      <div className={styles.maincard}>
+        <h3>Gráfico de Desempenho por Listas</h3>
+        <ClassChart data={listsSubs} width={1000} />
       </div>
       <div className={styles.containercharts}>
         <div className={styles.secondarycard}>
           <h3> Gráfico de Desempenho por Assuntos </h3>
-          <ClassSubjectChart data={subjects} width={430} />
+          <ClassChart data={subjects} width={430} />
         </div>
         <div className={styles.secondarycard}>
           <h3> Gráfico de Desempenho por Dificuldade </h3>
-          <ClassSubjectChart data={difficulties} width={500} />
+          <ClassChart data={difficulties} width={500} />
         </div>
       </div>
     </div>
@@ -54,7 +56,12 @@ export async function getStaticProps(context) {
   )
   const data2 = await response2.data
 
-  return { props: { subjects: data1, difficulties: data2 } }
+  const response3 = await axios.get(
+    `${process.env.API_URL}/api/tests/lists_subs`
+  )
+  const data3 = await response3.data
+
+  return { props: { subjects: data1, difficulties: data2, listsSubs: data3 } }
 }
 
 export default ClassDetails

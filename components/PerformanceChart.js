@@ -8,7 +8,7 @@ import {
   Legend
 } from 'recharts'
 
-function ClassSubjectChart({ data, width }) {
+function PerformanceChart({ data, width }) {
   console.log(data)
   return (
     <BarChart
@@ -34,4 +34,4 @@ function ClassSubjectChart({ data, width }) {
   )
 }
 
-export default ClassSubjectChart
+export default PerformanceChart
