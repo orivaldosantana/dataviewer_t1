@@ -23,11 +23,11 @@ function ClassDetails({ subjects, difficulties }) {
       <div className={styles.containercharts}>
         <div className={styles.secondarycard}>
           <h3> Gráfico de Desempenho por Assuntos </h3>
-          <ClassSubjectChart data={subjects} />
+          <ClassSubjectChart data={subjects} width={430} />
         </div>
         <div className={styles.secondarycard}>
           <h3> Gráfico de Desempenho por Dificuldade </h3>
-          <ClassSubjectChart data={difficulties} />
+          <ClassSubjectChart data={difficulties} width={500} />
         </div>
       </div>
     </div>

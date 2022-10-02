@@ -8,11 +8,11 @@ import {
   Legend
 } from 'recharts'
 
-function ClassSubjectChart({ data }) {
+function ClassSubjectChart({ data, width }) {
   console.log(data)
   return (
     <BarChart
-      width={400}
+      width={width}
       height={300}
       data={data}
       margin={{
