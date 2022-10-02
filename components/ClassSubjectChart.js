@@ -27,9 +27,9 @@ function ClassSubjectChart({ data }) {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="acertos" fill="#8884d8" />
-      <Bar dataKey="erros" fill="#a58" />
-      <Bar dataKey="restantes" fill="#82ca9d" />
+      <Bar dataKey="acertos" fill="#07DB47" />
+      <Bar dataKey="erros" fill="#DB2927" />
+      <Bar dataKey="restantes" fill="#124375" />
     </BarChart>
   )
 }

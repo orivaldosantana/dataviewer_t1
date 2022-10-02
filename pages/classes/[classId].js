@@ -21,9 +21,15 @@ function ClassDetails({ data }) {
 
         <p> {classId} </p>
       </div>
-      <div className={styles.secondarycard}>
-        <h3> Gráfico de Desempenho por Assuntos </h3>
-        <ClassSubjectChart data={data} />
+      <div className={styles.containercharts}>
+        <div className={styles.secondarycard}>
+          <h3> Gráfico de Desempenho por Assuntos </h3>
+          <ClassSubjectChart data={data} />
+        </div>
+        <div className={styles.secondarycard}>
+          <h3> Gráfico de Desempenho por Assuntos </h3>
+          <ClassSubjectChart data={data} />
+        </div>
       </div>
     </div>
   )

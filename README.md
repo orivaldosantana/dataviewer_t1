@@ -33,3 +33,7 @@ Páginas estáticas
 
 - [Dynamic Import](https://nextjs.org/docs/advanced-features/dynamic-import)
 - [Next.js Tutorial - 27 - getStaticPaths fallback true](https://www.youtube.com/watch?v=j4nAZaPQzwc&list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&index=27)
+
+CSS
+
+- [Align-content](https://developer.mozilla.org/pt-BR/docs/Web/CSS/align-content)
