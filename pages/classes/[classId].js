@@ -2,7 +2,6 @@ import styles from '../../styles/Home.module.css'
 import axios from 'axios'
 
 import { useRouter } from 'next/router'
-//import ClassSubjectChart from '../../components/ClassSubjectChart'
 
 import dynamic from 'next/dynamic'
 
