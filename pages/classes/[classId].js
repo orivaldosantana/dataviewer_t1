@@ -36,7 +36,7 @@ function ClassDetails({ subjects, difficulties }) {
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { classId: '59dfe476-1325-433f-b676-c8df9a2c2072' } }],
+    paths: [],
     fallback: true
   }
 }
