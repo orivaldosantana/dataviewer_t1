@@ -11,7 +11,7 @@ const ClassSubjectChart = dynamic(
   { ssr: false }
 )
 
-function ClassDetails({ data }) {
+function ClassDetails({ subjects, difficulties }) {
   const router = useRouter()
   const classId = router.query.classId
   return (
@@ -24,11 +24,11 @@ function ClassDetails({ data }) {
       <div className={styles.containercharts}>
         <div className={styles.secondarycard}>
           <h3> Gráfico de Desempenho por Assuntos </h3>
-          <ClassSubjectChart data={data} />
+          <ClassSubjectChart data={subjects} />
         </div>
         <div className={styles.secondarycard}>
-          <h3> Gráfico de Desempenho por Assuntos </h3>
-          <ClassSubjectChart data={data} />
+          <h3> Gráfico de Desempenho por Dificuldade </h3>
+          <ClassSubjectChart data={difficulties} />
         </div>
       </div>
     </div>
@@ -48,8 +48,14 @@ export async function getStaticProps(context) {
   const response = await axios.get(
     `${process.env.API_URL}/api/tests/subject_submissions`
   )
-  const data = await response.data
-  return { props: { data } }
+  const data1 = await response.data
+
+  const response2 = await axios.get(
+    `${process.env.API_URL}/api/tests/difficulty_subs`
+  )
+  const data2 = await response2.data
+
+  return { props: { subjects: data1, difficulties: data2 } }
 }
 
 export default ClassDetails
