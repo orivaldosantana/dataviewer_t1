@@ -28,3 +28,8 @@ Rotas:
 Banco de dados:
 
 - [Getting Started with Firebase 9 #4 - Firestore Setup & Fetching Data](https://www.youtube.com/watch?v=2yNyiW_41H8&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&index=4)
+
+Páginas estáticas
+
+- [Dynamic Import](https://nextjs.org/docs/advanced-features/dynamic-import)
+- [Next.js Tutorial - 27 - getStaticPaths fallback true](https://www.youtube.com/watch?v=j4nAZaPQzwc&list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&index=27)

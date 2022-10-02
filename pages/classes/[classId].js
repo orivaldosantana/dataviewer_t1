@@ -2,10 +2,16 @@ import styles from '../../styles/Home.module.css'
 import axios from 'axios'
 
 import { useRouter } from 'next/router'
-import ClassSubjectChart from '../../components/ClassSubjectChart'
+//import ClassSubjectChart from '../../components/ClassSubjectChart'
+
+import dynamic from 'next/dynamic'
+
+const ClassSubjectChart = dynamic(
+  () => import('../../components/ClassSubjectChart'),
+  { ssr: false }
+)
 
 function ClassDetails({ data }) {
-  console.log(data)
   const router = useRouter()
   const classId = router.query.classId
   return (
@@ -15,8 +21,9 @@ function ClassDetails({ data }) {
 
         <p> {classId} </p>
       </div>
-      <div className={styles.maincard}>
-        <ClassSubjectChart />
+      <div className={styles.secondarycard}>
+        <h3> Gráfico de Desempenho por Assuntos </h3>
+        <ClassSubjectChart data={data} />
       </div>
     </div>
   )
