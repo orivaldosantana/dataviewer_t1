@@ -4,12 +4,13 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 
 import dynamic from 'next/dynamic'
+import StudentCards from '../../components/StudentCards'
 
 const ClassChart = dynamic(() => import('../../components/PerformanceChart'), {
   ssr: false
 })
 
-function ClassDetails({ subjects, difficulties, listsSubs }) {
+function ClassDetails({ subjects, difficulties, listsSubs, students }) {
   const router = useRouter()
   const classId = router.query.classId
   return (
@@ -31,6 +32,10 @@ function ClassDetails({ subjects, difficulties, listsSubs }) {
           <h3> Gráfico de Desempenho por Dificuldade </h3>
           <ClassChart data={difficulties} width={500} />
         </div>
+      </div>
+      <div className={styles.maincard}>
+        <h3>Estudantes da Turma</h3>
+        <StudentCards students={students} />
       </div>
     </div>
   )
@@ -61,7 +66,19 @@ export async function getStaticProps(context) {
   )
   const data3 = await response3.data
 
-  return { props: { subjects: data1, difficulties: data2, listsSubs: data3 } }
+  const response4 = await axios.get(
+    `${process.env.API_URL}/api/tests/stutents_progress`
+  )
+  const data4 = await response4.data
+
+  return {
+    props: {
+      subjects: data1,
+      difficulties: data2,
+      listsSubs: data3,
+      students: data4
+    }
+  }
 }
 
 export default ClassDetails
