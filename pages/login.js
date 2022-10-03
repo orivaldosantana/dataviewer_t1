@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useAuth } from '../context/AuthContext'
 import ErrorCard from '../components/ErrorCard'
 import { useRouter } from 'next/router'
+import styles from '../styles/Login.module.css'
 
 export default function Login() {
   const router = useRouter()
@@ -28,8 +29,22 @@ export default function Login() {
   }
 
   return (
-    <>
-      <div className="card">
+    <div className={styles.mainContainer}>
+      <div className={styles.leftSide}>
+        <Image src="/logo_name_h.svg" width={180} height={30} priority="true" />
+        <p>
+          Dataviewer é uma ferramenta de análise de dados que apresenta
+          informações relevantes para o professor e aluno, de forma a contribuir
+          com a implementação da educação 4.0. A plataforma digital fornece uma
+          visão geral para o professor sobre o aprendizado dos seus alunos,
+          através de um dashboard. Enquanto que no ambiente do aluno são
+          fornecidos feedbacks quanto à assimilação do conteúdo e
+          funcionalidades que estimulam o aprendizado de forma personalizada.
+          Tudo isso em tempo real e de forma automatizada.{' '}
+        </p>
+        <Image src="/intro_dv.svg" width={652} height={444} />
+      </div>
+      <div className={styles.card}>
         <Image src="/dataviewer_full.svg" width={200} height={115} />
         {error && <ErrorCard msg={error} />}
         <form className="form" onSubmit={handleSubmit}>
@@ -48,6 +63,6 @@ export default function Login() {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   )
 }

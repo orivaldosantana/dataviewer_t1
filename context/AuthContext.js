@@ -21,12 +21,10 @@ export function AuthProvider({ children }) {
   const auth = getAuth(app)
 
   function signup(email, password) {
-    console.log('Cadastro: ' + email + ' ' + password)
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
   function login(email, password) {
-    console.log('Login: ' + email + ' ' + password)
     return signInWithEmailAndPassword(auth, email, password)
   }
 

@@ -1,4 +1,5 @@
-import { initializeApp, getApps } from 'firebase/app'
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
 
 const clientCredentials = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -9,11 +10,6 @@ const clientCredentials = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID
 }
+const app = initializeApp(clientCredentials)
 
-export const createFirebaseApp = () => {
-  if (getApps().length <= 0) {
-    const app = initializeApp(clientCredentials)
-
-    return app
-  }
-}
+export const database = getFirestore(app)

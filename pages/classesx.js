@@ -14,7 +14,9 @@ function Classes({ items }) {
 }
 
 export async function getServerSideProps() {
-  const response = await axios.get(`${process.env.API_URL}/api/tests/classes`)
+  const response = await axios.get(
+    `${process.env.API_URL}/api/tests/db_classes`
+  )
   const items = await response.data
   return { props: { items } }
 }
