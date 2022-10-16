@@ -8,7 +8,7 @@ const Navbar = () => {
   async function handleAnchorLogoutClick(e) {
     try {
       await logout()
-      router.push('/login')
+      router.push('/')
     } catch {
       console.log('Falha ao realizar logout!')
     }
