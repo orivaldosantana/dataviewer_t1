@@ -26,9 +26,7 @@ const Navbar = () => {
           <Link href="/classes">Turmas</Link>
         </li>
         <li className={styles.li}>
-          <Link href="/login">
-            <a onClick={handleAnchorLogoutClick}>Sair</a>
-          </Link>
+          <a onClick={handleAnchorLogoutClick}>Sair</a>
         </li>
       </ul>
     </nav>
