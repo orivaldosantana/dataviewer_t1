@@ -6,7 +6,6 @@ import { database } from '../../../utils/initFirebaseDB'
 import { collection, getDocs } from 'firebase/firestore'
 
 function Classes({ classes }) {
-  console.log(classes)
   return (
     <div className={styles.maincontainer}>
       <div className={styles.maincard}>
