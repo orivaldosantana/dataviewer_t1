@@ -8,7 +8,7 @@ const Navbar = () => {
   async function handleAnchorLogoutClick(e) {
     try {
       await logout()
-      router.push('/login')
+      router.push('/')
     } catch {
       console.log('Falha ao realizar logout!')
     }
@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link href="/classes">Turmas</Link>
         </li>
         <li className={styles.li}>
-          <Link href="/login">
+          <Link href="/">
             <a onClick={handleAnchorLogoutClick}>Sair</a>
           </Link>
         </li>
