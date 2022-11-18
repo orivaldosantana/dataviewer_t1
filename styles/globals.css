@@ -70,7 +70,7 @@ header {
   text-align: center;
 }
 
-.form label {
+/* .form label {
   text-align: left;
   display: block;
 }
@@ -82,7 +82,7 @@ header {
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;
-}
+} */
 
 .button {
   background: #273b73;
