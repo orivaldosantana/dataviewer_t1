@@ -11,6 +11,8 @@ const clientCredentials = {
 }
 
 export const createFirebaseApp = () => {
+  console.log(clientCredentials);
+  
   if (getApps().length <= 0) {
     const app = initializeApp(clientCredentials)
 
