@@ -50,7 +50,7 @@ export default function Signup() {
 
         <div className="smalltext">
           Já tem conta?{' '}
-          <Link href="/login">
+          <Link href="/">
             <a>Faça Login.</a>
           </Link>
         </div>

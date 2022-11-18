@@ -1,35 +1,44 @@
-import React, { useRef, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useAuth } from '../context/AuthContext'
-import ErrorCard from '../components/ErrorCard'
-import { useRouter } from 'next/router'
-import styles from '../styles/Login.module.css'
+import React, { useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
+import ErrorCard from "../components/ErrorCard";
+import { useRouter } from "next/router";
+import styles from "../styles/Login.module.css";
+import {
+  Container
+} from "@mui/system";
 
 export default function Login() {
-  const router = useRouter()
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-  const { login, currentUser } = useAuth()
+  const router = useRouter();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const { login, currentUser } = useAuth();
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      setError('')
-      setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
-      router.push('/')
+      setError('');
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      router.push('/');
     } catch {
-      setError('Falha ao realizar o login!')
+      setError('Falha ao realizar o login!');
     }
-    setLoading(false)
+    setLoading(false);
   }
 
   return (
-    <div className={styles.mainContainer}>
+    <Container
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start"
+      }}
+    >
       <div className={styles.leftSide}>
         <Image src="/logo_name_h.svg" width={180} height={30} priority="true" />
         <p>
@@ -63,6 +72,6 @@ export default function Login() {
           </Link>
         </div>
       </div>
-    </div>
-  )
+    </Container>
+  );
 }
