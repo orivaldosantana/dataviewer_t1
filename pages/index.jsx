@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
@@ -14,11 +14,11 @@ import {
 
 export default function Login() {
   const router = useRouter();
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login, currentUser } = useAuth();
+  const { login } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -26,7 +26,9 @@ export default function Login() {
     try {
       setError('');
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+
+      const loginResponse = await login(email, password);
+
       router.push('/');
     } catch {
       setError('Falha ao realizar o login!');
@@ -93,7 +95,7 @@ export default function Login() {
             sx={{
               my: 1
             }}
-            ref={emailRef}
+            onChange={e => setEmail(e.target.value)}
           />
           <TextField
             label="senha"
@@ -105,7 +107,7 @@ export default function Login() {
             sx={{
               my: 1
             }}
-            ref={passwordRef}
+            onChange={e => setPassword(e.target.value)}
           />
           <Button
             variant="contained"
