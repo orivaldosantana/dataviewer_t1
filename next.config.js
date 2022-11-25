@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
-export const nextConfig = {
+const apiDevUrl = "http://localhost:3001";
+
+const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  devApiRoute: "http://localhost:3001"
+  urlApi: apiDevUrl
 }
+
+module.exports = nextConfig;

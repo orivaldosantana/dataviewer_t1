@@ -8,7 +8,7 @@ const Header = () => {
       <Image src="/logo_name_h.svg" width={160} height={26} priority="true" />
       <div>
         <h3> Nome Usuário </h3>
-        {currentUser.email}
+        {/* {currentUser.email} */}
       </div>
     </header>
   )

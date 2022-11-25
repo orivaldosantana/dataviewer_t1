@@ -39,7 +39,7 @@ header {
 
 .errorcard {
   max-width: 400px;
-  margin: 40px auto;
+  margin: 10px auto 0 auto;
   background-color: #fab8b7;
   color: rgb(131, 0, 0);
   border-radius: 4px;

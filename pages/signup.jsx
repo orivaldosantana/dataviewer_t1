@@ -28,8 +28,13 @@ export default function Signup() {
     }
     try {
       setError('')
+
       setLoading(true)
+
       const signUpResponse = await signup(email, password);
+
+      console.log(signUpResponse);
+
       router.push('/')
     } catch {
       setError('Falha ao criar uma conta!')

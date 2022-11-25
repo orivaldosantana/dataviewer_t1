@@ -1,8 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { createFirebaseApp } from '../utils/firebase'
 import { getAuth } from 'firebase/auth'
-import { nextConfig } from '../next.config'
-
+import nextConfig from '../next.config';
 import {
   signOut
 } from 'firebase/auth'
@@ -25,7 +24,7 @@ export function AuthProvider({ children }) {
       password: password
     }
 
-    const signUpResponse = await fetch(`${nextConfig.devApiRoute}/auth/signup`, {
+    const signUpResponse = await fetch(`${nextConfig.urlApi}/auth/signup`, {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -43,7 +42,7 @@ export function AuthProvider({ children }) {
       password: password
     }
 
-    const loginResponse = await fetch(`${nextConfig.devApiRoute}/auth/signin`, {
+    const loginResponse = await fetch(`${nextConfig.urlApi}/auth/signin`, {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -73,9 +72,10 @@ export function AuthProvider({ children }) {
     signup,
     login
   }
+  
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
     </AuthContext.Provider>
-  )
+  );
 }
