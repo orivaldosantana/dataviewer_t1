@@ -1,10 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { createFirebaseApp } from '../utils/firebase'
 import { getAuth } from 'firebase/auth'
-
+import nextConfig from '../next.config';
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   signOut
 } from 'firebase/auth'
 
@@ -20,12 +18,40 @@ export function AuthProvider({ children }) {
   const app = createFirebaseApp()
   const auth = getAuth(app)
 
-  function signup(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password)
+  async function signup(email, password) {
+    const bodyReq = {
+      email: email,
+      password: password
+    }
+
+    const signUpResponse = await fetch(`${nextConfig.urlApi}/auth/signup`, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(bodyReq)
+    });
+
+    return signUpResponse;
   }
 
-  function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password)
+  async function login(email, password) {
+    const bodyReq = {
+      email: email,
+      password: password
+    }
+
+    const loginResponse = await fetch(`${nextConfig.urlApi}/auth/signin`, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(bodyReq)
+    });
+
+    return loginResponse;
   }
 
   function logout() {
@@ -46,9 +72,10 @@ export function AuthProvider({ children }) {
     signup,
     login
   }
+  
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
     </AuthContext.Provider>
-  )
+  );
 }

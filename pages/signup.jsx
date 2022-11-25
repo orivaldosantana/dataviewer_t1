@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { useAuth } from '../context/AuthContext'
 import ErrorCard from '../components/ErrorCard'
@@ -14,22 +14,27 @@ import {
 
 export default function Signup() {
   const router = useRouter()
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const passwordConfirmRef = useRef()
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [ passwordConfirm, setPasswordConfirm ] = useState("");
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const { signup } = useAuth()
 
   async function handleSubmit(e) {
     e.preventDefault()
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if (password !== passwordConfirm) {
       return setError('Senhas não conferem!')
     }
     try {
       setError('')
+
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
+
+      const signUpResponse = await signup(email, password);
+
+      console.log(signUpResponse);
+
       router.push('/')
     } catch {
       setError('Falha ao criar uma conta!')
@@ -64,7 +69,7 @@ export default function Signup() {
             sx={{
               my: 1
             }}
-            ref={emailRef}
+            onChange={e => setEmail(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -76,7 +81,7 @@ export default function Signup() {
             sx={{
               my: 1
             }}
-            ref={passwordRef}
+            onChange={e => setPassword(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -88,7 +93,7 @@ export default function Signup() {
             sx={{
               my: 1
             }}
-            ref={passwordConfirmRef}
+            onChange={e => setPasswordConfirm(e.target.value)}
           />
           <Button
             disabled={loading}
@@ -117,5 +122,5 @@ export default function Signup() {
         </Box>
       </Box>
     </Container>
-  )
+  );
 }

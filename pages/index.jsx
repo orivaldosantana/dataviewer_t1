@@ -1,35 +1,55 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
-import ErrorCard from "../components/ErrorCard";
 import { useRouter } from "next/router";
 import {
   Container,
   Box,
   Typography,
   TextField,
-  Button
+  Button,
+  Alert,
+  IconButton,
+  AlertTitle
 } from "@mui/material";
+import { Close } from "@mui/icons-material/";
 
 export default function Login() {
   const router = useRouter();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const [error, setError] = useState('');
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
   const [loading, setLoading] = useState(false);
-  const { login, currentUser } = useAuth();
+  const { login } = useAuth();
+  const [ openAlert, setOpenAlert ] = useState(false);
+  const [ alertMessage, setAlertMessage ] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
-      setError('');
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      router.push('/');
+
+      const loginResponse = await login(email, password);
+
+      if (loginResponse.status === 401) {
+        const { message } = await loginResponse.json();
+
+        setAlertMessage(message);
+
+        setOpenAlert(true);
+      } else if (loginResponse.status === 200) {
+        const { token } = await loginResponse.json();
+
+        localStorage.setItem("token", token);
+
+        router.push('/logado');
+      }
+
     } catch {
-      setError('Falha ao realizar o login!');
+      setAlertMessage('Falha ao realizar o login!');
+
+      setOpenAlert(true);
     }
     setLoading(false);
   }
@@ -81,7 +101,25 @@ export default function Login() {
         }}
       >
         <Image src="/dataviewer_full.svg" width={200} height={115} />
-        {error && <ErrorCard msg={error} />}
+        {
+          openAlert && (
+            <Alert
+              severity="error"
+              variant="filled"
+              action={
+                <IconButton
+                  size="small"
+                  onClick={() => setOpenAlert(false)}
+                >
+                  <Close />
+                </IconButton>
+              }
+            >
+              <AlertTitle>Erro de Login</AlertTitle>
+              {alertMessage}
+            </Alert>
+          )
+        }
         <form className="form" onSubmit={handleSubmit}>
           <TextField
             label="Email"
@@ -93,7 +131,7 @@ export default function Login() {
             sx={{
               my: 1
             }}
-            ref={emailRef}
+            onChange={e => setEmail(e.target.value)}
           />
           <TextField
             label="senha"
@@ -105,7 +143,7 @@ export default function Login() {
             sx={{
               my: 1
             }}
-            ref={passwordRef}
+            onChange={e => setPassword(e.target.value)}
           />
           <Button
             variant="contained"
