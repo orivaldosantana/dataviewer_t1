@@ -5,6 +5,7 @@ import nextConfig from '../next.config';
 import {
   signOut
 } from 'firebase/auth'
+import { useRouter } from 'next/router';
 
 const AuthContext = React.createContext()
 
@@ -13,6 +14,8 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
+  const router = useRouter();
+
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
   const app = createFirebaseApp()
@@ -55,7 +58,9 @@ export function AuthProvider({ children }) {
   }
 
   function logout() {
-    return signOut(auth)
+    localStorage.setItem("token", "");
+
+    router.push("/");
   }
 
   useEffect(() => {

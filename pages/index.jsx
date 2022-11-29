@@ -43,7 +43,7 @@ export default function Login() {
 
         localStorage.setItem("token", token);
 
-        router.push('/logado');
+        router.push('/classes');
       }
 
     } catch {

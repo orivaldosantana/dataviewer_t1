@@ -2,17 +2,21 @@ import '../styles/globals.css'
 
 import { AuthProvider } from '../context/AuthContext'
 import { useRouter } from 'next/router'
-import ProtectedRoute from '../components/ProtectedRoute'
-import Layout from '../components/Layout'
+import ProtectedRoute from '../components/ProtectedRoute.jsx'
+import Layout from '../components/Layout.jsx'
 
-const noAuthRequired = ['/', '/signup'];
+const noAuthRequired = ['/', '/signup', "/classes"];
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   return (
     <AuthProvider>
       {noAuthRequired.includes(router.pathname) ? (
-        <Component {...pageProps} />
+        router.pathname === "/classes" ? (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        ) : <Component {...pageProps} />
       ) : (
         <ProtectedRoute>
           <Layout>

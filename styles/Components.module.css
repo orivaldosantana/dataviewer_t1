@@ -1,5 +1,5 @@
 .card {
-  border: 2px solid #fff;
+  border: 2px solid transparent;
   border-radius: 10px;
   overflow: hidden;
   margin: 15px;

@@ -31,10 +31,6 @@ const ProtectedRoute = ({ children }) => {
 
     tokenVerify();
   }, []);
-
-  useEffect(() => {
-    console.log(isTokenValid);
-  }, [isTokenValid]);
   
   if (isTokenValid === null) {
     return <h1>Loading...</h1>
