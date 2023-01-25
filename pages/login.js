@@ -23,7 +23,7 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value)
       router.push('/')
     } catch {
-      setError('Falha ao realizar o login!')
+      setError('Falha ao realizar o login!!')
     }
     setLoading(false)
   }
